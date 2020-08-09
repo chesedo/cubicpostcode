@@ -1,3 +1,16 @@
+# Usage
+Call `main.py` with the Cubic Post Code
+
+```
+usage: main.py [-h] CubicCode
+
+positional arguments:
+  CubicCode   The Cubic Code that will be converted
+
+optional arguments:
+  -h, --help  show this help message and exit
+```
+
 # Process
 This is based on my understanding of the cube numbers as presented by [CubicPostcode.com](CubicPostcode.com).
 
