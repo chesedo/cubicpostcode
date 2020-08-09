@@ -245,7 +245,7 @@ These co-ordinates come from the remainder when calculating the z-layer. Finding
     <td style="border: 1px solid gray">+ 44</td>
 </tr>
 <tr>
-    <td style="border: 1px solid gray; background: red">+ 64</td>
+    <td style="border: 1px solid gray; background: red">+ 64 `#ff0000`</td>
     <td style="border: 1px solid gray">+ 17</td> 
     <td style="border: 1px solid gray">+ 18</td>
     <td style="border: 1px solid gray">+ 19</td> 
