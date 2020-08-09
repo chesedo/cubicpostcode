@@ -1,4 +1,4 @@
-from main import CubicCode
+from cubic_code import CubicCode
 import pytest
 
 
