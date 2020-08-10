@@ -19,11 +19,11 @@ def test_get_x_layer():
 def test_get_coordinates():
     c = CubicCode("5")
 
-    assert c.get_coordinates() == (0.5, -1, -1)
+    assert c.get_coordinates() == (0.5, 1.5, -1.5)
 
     c = CubicCode("3141592653589793238462")
 
-    assert c.get_coordinates() == (3_561_896.5, 9_767_162, -8_402_969)
+    assert c.get_coordinates() == (3_561_896.5, -9_767_161.5, -8_402_969.5)
 
 
 def test_to_x_coordinate():
@@ -47,20 +47,20 @@ def test_to_min_offset():
     assert CubicCode.to_min_offset(9_767_162) == 381_589_735_999_685
 
 
-def test_to_x_y():
-    assert CubicCode.to_z_y(6) == (0, -1)
-    assert CubicCode.to_z_y(9) == (2, 0)
-    assert CubicCode.to_z_y(11) == (2, 2)
-    assert CubicCode.to_z_y(12) == (1, 2)
-    assert CubicCode.to_z_y(13) == (0, 2)
-    assert CubicCode.to_z_y(15) == (-1, 1)
-    assert CubicCode.to_z_y(16) == (-1, 0)
+def test_to_z_y():
+    assert CubicCode.to_z_y(6) == (-0.5, 1.5)
+    assert CubicCode.to_z_y(9) == (1.5, 0.5)
+    assert CubicCode.to_z_y(11) == (1.5, -1.5)
+    assert CubicCode.to_z_y(12) == (0.5, -1.5)
+    assert CubicCode.to_z_y(13) == (-0.5, -1.5)
+    assert CubicCode.to_z_y(15) == (-1.5, -0.5)
+    assert CubicCode.to_z_y(16) == (-1.5, 0.5)
 
-    assert CubicCode.to_z_y(27) == (3, 3)
-    assert CubicCode.to_z_y(55) == (0, 4)
-    assert CubicCode.to_z_y(62) == (-3, 0)
-    assert CubicCode.to_z_y(44) == (4, -3)
-    assert CubicCode.to_z_y(17) == (-2, -2)
-    assert CubicCode.to_z_y(1) == (0, 0)
+    assert CubicCode.to_z_y(27) == (2.5, -2.5)
+    assert CubicCode.to_z_y(55) == (-0.5, -3.5)
+    assert CubicCode.to_z_y(62) == (-3.5, 0.5)
+    assert CubicCode.to_z_y(44) == (3.5, 3.5)
+    assert CubicCode.to_z_y(17) == (-2.5, 2.5)
+    assert CubicCode.to_z_y(1) == (-0.5, 0.5)
 
-    assert CubicCode.to_z_y(381_589_793_238_462) == (-8_402_969, 9_767_162)
+    assert CubicCode.to_z_y(381_589_793_238_462) == (-8_402_969.5, -9_767_161.5)

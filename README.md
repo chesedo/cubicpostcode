@@ -211,7 +211,7 @@ From here it is simply a matter of walking around the square radius to find the 
 
 Looking back at the offset table, we know that the offset 12 is in the radius 2 with a minimum of 5. A radius 2 means the length of each side is 4 - we will subtract one from this to move to the next corner. So adding the side length (3) to the minimum (5) gives 8. Since 12 is not it this range it means that 12 is not in the top row. Add 3 again to the new minimum gives 11. This still less that 12, so it is not in the right side either. Adding another 3 gives 15. Since 12 is less than this, it has to be in the bottom row.
 
-This results in the following code - adjustments are made to have the offset +1 at the origin:
+This results in the following code - adjustments are made to have the center of offset +1 at the origin:
 ```python
 def to_z_y(offset: int) -> int:
     r = to_square_radius(offset)
@@ -220,22 +220,26 @@ def to_z_y(offset: int) -> int:
 
     offset -= mini
 
+    # In top row
     if offset < length:
-        return (offset - r, -r + 1)
+        return (offset - r + 0.5, r - 0.5)
 
     offset -= length
 
+    # In right row
     if offset < length:
-        return (r, offset - r + 1)
+        return (r - 0.5, -(offset - r) - 0.5)
 
     offset -= length
 
+    # In bottom row
     if offset < length:
-        return (-(offset - r), r)
+        return (-(offset - r) - 0.5, -r + 0.5)
 
     offset -= length
 
-    return (-r + 1, -(offset - r))
+    # In left row
+    return (-r + 0.5, offset - r + 0.5)
 ```
 
-It results in the following z and y for the Pi number: -8 402 969, 9 767 162
+It results in the following z and y for the Pi number: -8 402 969.5, -9 767 161.5

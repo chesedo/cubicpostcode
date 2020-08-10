@@ -94,19 +94,23 @@ class CubicCode:
 
         offset -= mini
 
+        # In top row
         if offset < length:
-            return (offset - r + 1, -r + 1)
+            return (offset - r + 0.5, r - 0.5)
 
         offset -= length
 
+        # In right row
         if offset < length:
-            return (r, offset - r + 1)
+            return (r - 0.5, -(offset - r) - 0.5)
 
         offset -= length
 
+        # In bottom row
         if offset < length:
-            return (-(offset - r), r)
+            return (-(offset - r) - 0.5, -r + 0.5)
 
         offset -= length
 
-        return (-r + 1, -(offset - r))
+        # In left row
+        return (-r + 0.5, offset - r + 0.5)
