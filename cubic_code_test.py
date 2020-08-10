@@ -15,11 +15,11 @@ def test_get_x_layer():
 def test_get_coordinates():
     c = CubicCode("5")
 
-    assert c.get_coordinates() == (-1, -1, 0)
+    assert c.get_coordinates() == (0.5, -1, -1)
 
     c = CubicCode("3141592653589793238462")
 
-    assert c.get_coordinates() == (-8_402_969, 9_767_162, -3_561_896)
+    assert c.get_coordinates() == (3_561_896.5, 9_767_162, -8_402_969)
 
 
 def test_to_x_coordinate():
