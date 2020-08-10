@@ -71,15 +71,6 @@
        id="perspective4518" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient4542"
-       id="linearGradient4577"
-       gradientUnits="userSpaceOnUse"
-       x1="69.73661"
-       y1="101.99429"
-       x2="94.962959"
-       y2="101.99429" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient4581"
        id="linearGradient4583"
        x1="75.935425"
@@ -129,13 +120,13 @@
      id="layer1"
      transform="translate(-39.700299,-50.86154)">
     <path
-       points="69.736609,112.57142 94.962962,119.22956 94.962962,87.462479 69.736609,84.759018 "
-       d="m 69.736609,84.759018 v 27.812402 l 25.226353,6.65814 V 87.462479 Z"
-       inkscape:box3dsidetype="14"
-       style="fill:url(#linearGradient4577);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.34725201;stroke-linejoin:round"
-       id="path4552"
-       sodipodi:type="inkscape:box3dside"
-       transform="matrix(2.6028898,0,0,2.6028898,-114.45104,-164.5558)" />
+       transform="matrix(0.93206535,0,0,0.93206535,-26.08025,1.6074739)"
+       points="153.55066,132.27004 112.50123,159.5337 112.50123,68.155745 153.55066,57.085651 "
+       d="M 153.55066,57.085651 V 132.27004 L 112.50123,159.5337 V 68.155745 Z"
+       inkscape:box3dsidetype="3"
+       style="opacity:1;fill:url(#linearGradient4542);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.76107347;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path5957"
+       sodipodi:type="inkscape:box3dside" />
     <g
        sodipodi:type="inkscape:box3d"
        id="g4520"

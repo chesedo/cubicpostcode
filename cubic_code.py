@@ -11,11 +11,11 @@ class CubicCode:
         """
         self.__code = int(code)
 
-    def get_z_layer_and_offset(self) -> Tuple[int, int]:
-        """Get the z-layer and offset for the cubic code
+    def get_x_layer_and_offset(self) -> Tuple[int, int]:
+        """Get the x-layer and offset for the cubic code
 
         Returns:
-            Tuple[int, int]: The z-layer number and offset number of the cubic code
+            Tuple[int, int]: The x-layer number and offset number of the cubic code
         """
         q, r = divmod(self._CubicCode__code, 441_000_000_000_000)
         return (q + 1, r)
@@ -26,29 +26,29 @@ class CubicCode:
         Returns:
             Tuple[int, int, int]: The x, y and z co-ordinates
         """
-        l, o = self.get_z_layer_and_offset()
+        l, o = self.get_x_layer_and_offset()
 
-        z = CubicCode.to_z_coordinate(l)
-        (x, y) = CubicCode.to_x_y(o)
+        x = CubicCode.to_x_coordinate(l)
+        (z, y) = CubicCode.to_z_y(o)
 
         return (x, y, z)
 
     @staticmethod
-    def to_z_coordinate(layer: int) -> int:
-        """Convert the z-layer number to the z co-ordinate
+    def to_x_coordinate(layer: int) -> float:
+        """Convert the x-layer number to the x co-ordinate
 
         Args:
             layer (int): The layer number to convert
 
         Returns:
-            int: Z co-ordinate for the layer number
+            float: X co-ordinate for the layer number
         """
         q, r = divmod(layer, 2)
 
-        if r == 0:
-            return q
+        if r == 1:
+            return q + 0.5
 
-        return -q
+        return -(q - 0.5)
 
     @staticmethod
     def to_square_radius(offset: int) -> int:
@@ -75,14 +75,14 @@ class CubicCode:
         return (2 * (radius - 1)) ** 2 + 1
 
     @staticmethod
-    def to_x_y(offset: int) -> Tuple[int, int]:
-        """Calculate the x and y from a z-layer offset
+    def to_z_y(offset: int) -> Tuple[int, int]:
+        """Calculate the z and y from a x-layer offset
 
         Args:
             offset (int): The offset
 
         Returns:
-            Tuple[int, int]: The calculated x and y co-ordinates
+            Tuple[int, int]: The calculated z and y co-ordinates
         """
         r = CubicCode.to_square_radius(offset)
         mini = CubicCode.to_min_offset(r)
