@@ -18,6 +18,10 @@ class CubicCode:
             Tuple[int, int]: The x-layer number and offset number of the cubic code
         """
         q, r = divmod(self._CubicCode__code, 441_000_000_000_000)
+
+        if r == 0:
+            return (q, 441_000_000_000_000)
+
         return (q + 1, r)
 
     def get_coordinates(self) -> Tuple[int, int, int]:

@@ -11,6 +11,10 @@ def test_get_x_layer():
 
     assert c.get_x_layer_and_offset() == (7_123_793, 381_589_793_238_462)
 
+    c = CubicCode("441_000_000_000_000")
+
+    assert c.get_x_layer_and_offset() == (1, 441_000_000_000_000)
+
 
 def test_get_coordinates():
     c = CubicCode("5")
