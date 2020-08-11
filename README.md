@@ -147,14 +147,14 @@ def to_x_coordinate(layer: int) -> int:
     return -(q - 0.5)
 ```
 
-## Z and Y Co-ordinates
+## Y and Z Co-ordinates
 These co-ordinates come from the remainder when calculating the x-layer. Finding these will be easier once we know which square "radius" we are in.
 
 ### Square Radius
 
 ![Square Radius](SquareRadius.svg)
 
-The blue outline is our square radius (r) and has a value of 2. The top blue row has co-ordinates (z, -2). The bottom row has co-ordinates (z, 2). The left (-2, y) and the right (2, y). Thus they all have the square radius in the co-ordinate at least once - the corners have it twice. Each side also has the length 2r.
+The blue outline is our square radius (r) and has a value of 2. The top blue row has co-ordinates (y, 2). The bottom row has co-ordinates (y, -2). The left (-2, z) and the right (2, z). Thus they all have the square radius in the co-ordinate at least once - the corners have it twice. Each side also has the length 2r.
 
 The maximum offset in each square radius is as follow:
 ```
@@ -207,13 +207,13 @@ def to_min_offset(radius: int) -> int:
     return (2 * (radius - 1)) ** 2 + 1
 ```
 
-From here it is simply a matter of walking around the square radius to find the side the cube is in. We already know the z or y co-ordinate will be the square radius and thus just need to solve the remaining one.
+From here it is simply a matter of walking around the square radius to find the side the cube is in. We already know the y or z co-ordinate will be the square radius and thus just need to solve the remaining one.
 
 Looking back at the offset table, we know that the offset 12 is in the radius 2 with a minimum of 5. A radius 2 means the length of each side is 4 - we will subtract one from this to move to the next corner. So adding the side length (3) to the minimum (5) gives 8. Since 12 is not it this range it means that 12 is not in the top row. Add 3 again to the new minimum gives 11. This still less that 12, so it is not in the right side either. Adding another 3 gives 15. Since 12 is less than this, it has to be in the bottom row.
 
 This results in the following code - adjustments are made to have the center of offset +1 at the origin:
 ```python
-def to_z_y(offset: int) -> int:
+def to_y_z(offset: int) -> int:
     r = to_square_radius(offset)
     mini = to_min_offset(r)
     length = 2 * r - 1
@@ -242,4 +242,4 @@ def to_z_y(offset: int) -> int:
     return (-r + 0.5, offset - r + 0.5)
 ```
 
-It results in the following z and y for the Pi number: -8 402 969.5, -9 767 161.5
+It results in the following y and z for the Pi number: -8 402 969.5, -9 767 161.5

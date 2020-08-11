@@ -33,7 +33,7 @@ class CubicCode:
         l, o = self.get_x_layer_and_offset()
 
         x = CubicCode.to_x_coordinate(l)
-        (z, y) = CubicCode.to_z_y(o)
+        (y, z) = CubicCode.to_y_z(o)
 
         return (x, y, z)
 
@@ -79,14 +79,14 @@ class CubicCode:
         return (2 * (radius - 1)) ** 2 + 1
 
     @staticmethod
-    def to_z_y(offset: int) -> Tuple[int, int]:
-        """Calculate the z and y from a x-layer offset
+    def to_y_z(offset: int) -> Tuple[int, int]:
+        """Calculate the y and z from a x-layer offset
 
         Args:
             offset (int): The offset
 
         Returns:
-            Tuple[int, int]: The calculated z and y co-ordinates
+            Tuple[int, int]: The calculated y and z co-ordinates
         """
         r = CubicCode.to_square_radius(offset)
         mini = CubicCode.to_min_offset(r)
